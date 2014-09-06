@@ -20,10 +20,11 @@ void setup() {
 }
 
 void loop() {
+ hideAll();
  digitalWrite(7, HIGH); // turn the LED on (HIGH is the voltage level)
- delay(150); // wait for a second
+ delay(1500); // wait for a second
  digitalWrite(7, LOW); // turn the LED off by making the voltage LOW
- delay(100);
+ delay(1000);
  
 // setLED((12*2)/2/2, Color(0, 0, 200));
  stepsimple() ;
@@ -46,7 +47,7 @@ void stepsimple() {
     }
     
     strip.show();
-    delay(100);
+    delay(2000);
  }
  
  setLED(topseq[seqcount-1], Color(0, 0, 0));
@@ -61,6 +62,17 @@ void setLEDPair(uint8_t led, uint32_t c) {
 
 void setLED(uint8_t led, uint32_t c) {
    strip.setPixelColor(led, c);
+}
+
+void hideAll(){
+  Serial.print(strip.numPixels());
+  for(int i = 0; i > strip.numPixels();i++){
+    strip.setPixelColor(i,Color(0,0,0));
+    Serial.print(i);
+    Serial.print(Color(0,0,0):
+}
+  
+  strip.show();
 }
 
 uint32_t Color(byte r, byte g, byte b) {
